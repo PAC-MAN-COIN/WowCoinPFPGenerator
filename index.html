@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WowPfpGenerator</title>
+
+    <!-- Mobile-friendly meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+    <style>
+      /* Make sure the html and body take up full window height, no scrollbars */
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Prevent scrolling */
+        background: #231F20; /* Or whatever background color you prefer */
+      }
+
+      /* The canvas should fill the entire browser window */
+      #unity-canvas {
+        width: 100%;
+        height: 100%;
+        background: #231F20;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Remove fixed pixel width/height attributes -->
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+    <!-- Unity Loader Script -->
+    <script src="Build/WowPfpGenerator.loader.js"></script>
+
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/WowPfpGenerator.data",
+        frameworkUrl: "Build/WowPfpGenerator.framework.js",
+        codeUrl: "Build/WowPfpGenerator.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "WowClicker",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment if you want separate control over rendering size vs. DOM size
+        // devicePixelRatio: 1,           // Uncomment to override DPI if needed
+      });
+    </script>
+  </body>
+</html>
